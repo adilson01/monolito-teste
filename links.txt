@@ -1,6 +1,4 @@
-http://localhost:8080/ibpjpix/entradaServicoA.jsf?CTRL=530418505880905090
-http://localhost:8080/ibpjpix/cadastrarNovaChave.jsf?CTRL=015164305990201010&facelift
-http://localhost:8080/ibpjpix/cadastrarChave.jsf?CTRL=015164305990201010&facelift
-http://localhost:8080/ibpjpix/cadastroCelular.jsf?CTRL=015164305990201010&facelift
-http://localhost:8080/ibpjpix/cadastroEmail.jsf?CTRL=015164305990201010&facelift
-http://localhost:8080/ibpjpix/validacaoPosse.jsf?CTRL=015164305990201010&facelift
+<properties>
+  <sonar.organization>adilson01</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
