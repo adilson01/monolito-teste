@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<!-- ======================================================================================= -->
+<!-- ========================= DEFINICIONES DE NEGOCIO Y SERVICIOS ========================= -->
+<!-- ======================================================================================= -->
+
+<beans>
+	<bean id="PDCAdapterAbstract"
+		class="br.com.bradesco.web.aq.application.pdc.adapter.base.PdcBaseAdapter"
+		abstract="true">
+		<property name="sessionManager" ref="sessionManager" />
+		<property name="logger" ref="logManager" />
+	</bean>
+</beans>

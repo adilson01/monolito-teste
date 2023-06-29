@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+                                   "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+    <definition name="warbase" extends="nib.main">
+		<put name="codigoFamiliaServico" value="1" />
+		<put name="messageBundle" value="br.com.bradesco.web.ibpj.view.bundle.Messages"/>
+		<put name="codigoServico" value="JAD" />
+		<putList name="css">
+			<item value="" link="geral/estrutura.css" tooltip="screen, print" />
+			<item value="" link="geral/interna.css" tooltip="screen, print" />
+			<item value="" link="geral/jquery.jqmodal.css" tooltip="screen" />
+			<item value="" link="geral/jquery.tooltip.css" tooltip="screen" />
+			<item value="" link="geral/jquery.autocomplete.css" tooltip="screen" />
+			<item value="" link="geral/jquery.combo.css" tooltip="screen" />
+			<item value="" link="geral/datePicker.css" tooltip="screen" />
+			<item value="" link="geral/tabelaExpansiva.css" tooltip="screen, print" />
+			<item value="" link="geral/tabelaOrdenada.css" tooltip="screen, print" />
+			<item value="" link="geral/tableRowSpan.css" tooltip="screen, print" />
+			<item value="" link="geral/estrutura-novolayout.css" tooltip="screen, print" />
+		</putList>
+		<putList name="js_infra">
+			<item value="" link="geral/jquery.ui.js" />
+			<item value="" link="geral/jquery.jqmodal.js" />
+			<item value="" link="geral/jquery.combo.js" />
+			<item value="" link="geral/jquery.tooltip.js" />
+			<item value="" link="geral/jquery.autocomplete.js" />
+			<item value="" link="geral/jquery.atalho.js" />
+			<item value="" link="geral/swfobject.js" />
+			<item value="" link="geral/default.js" />
+			<item value="" link="geral/jquery.cookie.min.js" />
+			<item value="" link="geral/print.js" />
+			<item value="" link="geral/mail.js" />
+			<item value="" link="geral/atendimento.js" />
+			<item value="" link="geral/jqDnR.js" />
+			<item value="" link="geral/jquery.livequery.js" />
+			<item value="" link="geral/jquery.datepicker.js" />
+			<item value="" link="geral/date.js" />
+			<item value="" link="geral/currency.js" />
+			<item value="" link="geral/validacoes.js" />
+			<item value="" link="geral/tabelaExpansiva.js" />
+			<item value="" link="geral/guide/table-sorter.js" />
+			<item value="" link="geral/AJAX.js" />
+			<item value="" link="geral/guide/campo-busca.js" />			
+			
+			<!-- Utilizar apenas para ver o guide / facelift local -->
+		</putList>
+		<putList name="css_sei">
+			<item value="" link="geral/estrutura-novolayout.css" tooltip="screen, print" />
+			<item value="" link="geral/estrutura.css" tooltip="screen, print" />
+			<item value="" link="geral/interna.css" tooltip="screen, print" />
+			<item value="" link="geral/impressao.css" tooltip="screen, print" />
+			<item value="" link="geral/tabelaExpansiva.css" tooltip="screen, print" />
+			<item value="" link="geral/tabelaOrdenada.css" tooltip="screen, print" />
+		</putList>
+		<putList name="js_sei"></putList>
+	</definition>
+	
+	<!-- ###################################################################################################### -->
+	<!-- #############                      TELAS DE BASE PARA O MODAL                          ############### -->
+	<!-- ###################################################################################################### -->
+	
+	<!-- Base dos modais do projeto -->
+	<definition name="base.modal.tiles" extends="nib.modal">
+		<put name="codigoFamiliaServico" value="P" />
+		<put name="messageBundle" value="br.com.bradesco.web.ibpj.view.bundle.Messages"/>
+		<putList name="css">
+			<item value="" link="geral/estrutura.css" tooltip="screen, print" />
+			<item value="" link="geral/interna.css" tooltip="screen, print" />
+			<item value="" link="geral/jquery.jqmodal.css" tooltip="screen" />
+			<item value="" link="geral/jquery.tooltip.css" tooltip="screen" />
+			<item value="" link="geral/jquery.autocomplete.css" tooltip="screen" />
+			<item value="" link="geral/jquery.combo.css" tooltip="screen" />
+			<item value="" link="geral/datePicker.css" tooltip="screen" />
+			<item value="" link="geral/tabelaExpansiva.css" tooltip="screen, print" />
+			<item value="" link="geral/tabelaOrdenada.css" tooltip="screen, print" />
+			<item value="" link="geral/tableRowSpan.css" tooltip="screen, print" />
+			<item value="" link="geral/estrutura-novolayout.css" tooltip="screen, print" />
+		</putList>
+		<putList name="js_infra">
+			<item value="" link="geral/jquery.ui.js" />
+			<item value="" link="geral/jquery.jqmodal.js" />
+			<item value="" link="geral/jquery.combo.js" />
+			<item value="" link="geral/jquery.tooltip.js" />
+			<item value="" link="geral/jquery.autocomplete.js" />
+			<item value="" link="geral/jquery.atalho.js" />
+			<item value="" link="geral/swfobject.js" />
+			<item value="" link="geral/default.js" />
+			<item value="" link="geral/jquery.cookie.min.js" />
+			<item value="" link="geral/print.js" />
+			<item value="" link="geral/mail.js" />
+			<item value="" link="geral/atendimento.js" />
+			<item value="" link="geral/jqDnR.js" />
+			<item value="" link="geral/jquery.livequery.js" />
+			<item value="" link="geral/jquery.datepicker.js" />
+			<item value="" link="geral/date.js" />
+			<item value="" link="geral/currency.js" />
+			<item value="" link="geral/validacoes.js" />
+			<item value="" link="geral/tabelaExpansiva.js" />
+			<item value="" link="geral/guide/table-sorter.js" />
+			<item value="" link="geral/AJAX.js" />
+			<item value="" link="geral/guide/campo-busca.js" />
+			
+			<!-- Utilizar apenas para ver o guide / facelift local -->
+		</putList>
+		<putList name="css_sei">
+			<item value="" link="geral/estrutura-novolayout.css" tooltip="screen, print" />
+			<item value="" link="geral/estrutura.css" tooltip="screen, print" />
+			<item value="" link="geral/interna.css" tooltip="screen, print" />
+			<item value="" link="geral/impressao.css" tooltip="screen, print" />
+			<item value="" link="geral/tabelaExpansiva.css" tooltip="screen, print" />
+			<item value="" link="geral/tabelaOrdenada.css" tooltip="screen, print" />
+		</putList>
+		<putList name="js_sei"></putList>
+	</definition>
+	
+	<!-- Base dos modais SIMPLES -->
+	<definition name="simplesModal.tiles" extends="base.modal.tiles">
+		<put name="codigoServico" value="JAD" />
+	</definition>
+	
+	
+	<!-- ##############  INICIO TELAS ###################################################### -->
+	
+	<definition name="/vincularChave.tiles" extends="warbase">
+		<put name="body" value="/WEB-INF/jsp/receber/qrcode/vincularChave.jsp" />
+		<put name="descricaoServico" value="titulo_vincular_chave" />
+		<put name="numeroTela" value="02" />
+		<put name="passo" value="2" />
+		<!-- <put name="nivelCaminhoPao" value="1" /> -->
+	</definition>
+	
+	<definition name="/criarQRCode.tiles" extends="warbase">
+		<put name="body" value="/WEB-INF/jsp/receber/qrcode/criarQRCode.jsp" />
+		<put name="descricaoServico" value="titulo_criar_qr_code" />
+		<put name="numeroTela" value="02" />
+		<put name="passo" value="2" />
+		<!-- <put name="nivelCaminhoPao" value="1" /> -->
+	</definition>
+	
+	<definition name="redirecionarCadastramentoChavePix.tiles" extends="warbase">
+		<put name="body" value="/WEB-INF/jsp/receber/qrcode/redirecionarCadastramentoChavePix.jsp" />
+		<put name="descricaoServico" value="criar_qrcode" />
+		<put name="numeroTela" value="02" />
+		<put name="codigoServico" value="JAD" />
+	</definition>
+	
+
+	<definition name="/confirmacaoDadosQrCode.tiles" extends="warbase">
+		<put name="body"
+			value="/WEB-INF/jsp/receber/qrcode/confirmacaoDadosQrCode.jsp" />
+		<put name="descricaoServico" value="confirmacao_dados" />
+		<put name="numeroTela" value="04" />
+		<put name="passo" value="4" />
+	</definition>
+
+	
+</tiles-definitions>

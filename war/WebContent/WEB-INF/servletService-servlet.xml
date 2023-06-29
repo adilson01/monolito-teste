@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+ 
+
+<beans>    
+    <!-- Aqui define o caminho final para o acesso remoto, ou seja, a URL a ser cadastrada na base deve ser na forma
+        [SERVIDOR url.base]/<SEU_CONTEXTO>/remote/processServiceDispatcher 
+    -->
+    <bean name="/processServiceDispatcher" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+          <property name="service" ref="autenticadorBean"/>
+          <property name="serviceInterface" value="br.com.bradesco.web.ibpj.service.business.operacao.autenticador.IAutenticadorService"/>
+    </bean>
+    
+    <bean name="autenticadorBean" class="br.com.bradesco.web.ibpj.view.pix.adesao.bean.AutenticadorBean">
+        <!-- <property name="logManager" ref="logManager"/>
+        <property name="carrinhoService" ref="carrinhoCobrancaService" />
+        <property name="bundleManager" ref="bundleManager"/> -->
+    </bean>
+    
+    <!-- Auto Proxy para os Beans Service -->
+   <!--  <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames">
+            <list>
+                <value>*autenticadorBean</value>
+            </list>
+        </property>
+        <property name="interceptorNames">
+            <list>OBRIGATÓRIO MANTER ESSA ORDEM
+                <value>ServiceAdvisorLogDispatcher</value>
+                <value>ServiceAdvisorDispatcher</value>
+            </list>
+        </property>
+    </bean>
+    
+    Interceptor Advisor utilizado pelo Proxy dos beans Service
+    <bean id="ServiceAdvisorDispatcher" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="advice">
+            <ref local="logTransacaoAdviceDispatcher"/>
+        </property>
+        <property name="patterns">
+            <list>
+                <value>.*efetuarProcessamentoAprovacao</value>
+                <value>.*efetuarProcessamentoRecusa</value>
+                <value>.*efetuarProcessamentoPendente</value>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="logTransacaoAdviceDispatcher"  class="br.com.bradesco.web.ib.application.log.aspect.LogTransacaoAdvice">
+        <property name="loggerManager" ref="logManager"/>
+          <property name="objectManager" ref="objectManager"/>
+          <property name="configuracaoLog" ref="configuracaoLog"/>
+    </bean>
+
+ 
+
+    Interceptor Advisor utilizado pelo Proxy dos beans Service
+    <bean id="ServiceAdvisorLogDispatcher" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="advice">
+            <ref local="logControleAdviceDispatcher"/>
+        </property>
+        <property name="patterns">
+            <list>
+                <value>.*efetuarProcessamentoAprovacao</value>
+                <value>.*efetuarProcessamentoRecusa</value>
+                <value>.*efetuarProcessamentoPendente</value>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="logControleAdviceDispatcher"  class="br.com.bradesco.web.ibpj.log.aspect.LogControleDispatcherAdvice">
+        <property name="loggerManager" ref="logManager"/>
+          <property name="objectManager" ref="objectManager"/>
+    </bean> -->
+    
+    <!-- Exemplo de configuração para chamada do dispatcher
+    Obs: os nomes referenciados nos property e no bean tem que ser iguais ao nome da Classe
+     -->
+ 
+
+    <!-- Fim do exemplo -->
+    
+    
+    <!-- Processamento PIX ADESAO Dispatcher -->
+    
+    <bean name="/processarPixAdesao" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+          <property name="service" ref="ProcessarPixAdesao"/>
+          <property name="serviceInterface" value="br.com.bradesco.web.ibpj.service.business.operacao.autenticador.IAutenticadorService"/>
+    </bean>
+    
+    <bean name="ProcessarPixAdesao" class="br.com.bradesco.web.ibpj.service.dispatcher.ProcessarPixAdesao"/>
+
+ 
+
+    <!-- Fim PIX ADESAO Dispatcher -->
+
+ 
+
+    <!-- Processamento PIX Efetivação Dispatcher -->
+    
+    <bean name="/processarPixPagamentos" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+          <property name="service" ref="ProcessarPixPagamentos"/>
+          <property name="serviceInterface" value="br.com.bradesco.web.ibpj.service.business.operacao.autenticador.IAutenticadorService"/>
+    </bean>
+    
+    <bean name="ProcessarPixPagamentos" class="br.com.bradesco.web.ibpj.service.dispatcher.ProcessarPixPagamentos"/>
+
+ 
+
+    <!-- Fim PIX Efetivação Dispatcher -->
+
+    <!-- Processamento PIX Exclusao Dispatcher -->
+    
+    <bean name="/processarPixExclusao" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+          <property name="service" ref="ProcessarPixExclusao"/>
+          <property name="serviceInterface" value="br.com.bradesco.web.ibpj.service.business.operacao.autenticador.IAutenticadorService"/>
+    </bean>
+    
+    <bean name="ProcessarPixExclusao" class="br.com.bradesco.web.ibpj.service.dispatcher.ProcessarPixExclusao"/>
+
+ 
+
+    <!-- Fim PIX Exclusao Dispatcher -->
+
+ 
+
+    
+    
+</beans>

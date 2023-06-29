@@ -1,0 +1,12 @@
+/bin/
+/target/
+.classpath
+.project
+.jsdtscope
+.tern-project
+*.jsfdia
+.settings
+/src
+/.metadata
+/war/JavaSource/br/com/bradesco/web/ibpj/http/
+.svn

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:util="http://www.springframework.org/schema/util" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd"
+	default-lazy-init="true">
+
+	<!-- EXEMPLO ##################### -->
+	
+	<bean id="cadastrarChaveBean"
+		class="br.com.bradesco.web.ibpj.view.pix.adesao.bean.CadastrarChaveBean"
+		scope="request">
+		<property name="form" ref="adesaoForm"></property>
+	</bean>
+	
+	<bean id="confirmacaoCadastroBean" class="br.com.bradesco.web.ibpj.view.pix.adesao.bean.ConfirmacaoCadastroBean" scope="request">
+	<property name="form" ref="adesaoForm"></property>
+	</bean>
+	
+	<bean id="confirmacaoDadosBean" 
+		  class="br.com.bradesco.web.ibpj.view.pix.adesao.bean.ConfirmacaoDadosBean" 
+		  scope="request">
+		<property name="form" ref="adesaoForm"></property>
+		<property name="adesaoService" ref="adesaoService"/>
+		<property name="bspiService" ref="bspiService"/>
+		<property name="pixTransacaoService" ref="pixTransacaoService"/>
+	</bean>
+	
+	<bean id="validacaoPosseBean"
+		class="br.com.bradesco.web.ibpj.view.pix.adesao.bean.ValidacaoPosseBean"
+		scope="request">
+		<property name="form" ref="adesaoForm"></property>
+		<property name="bspiService" ref="bspiService"/>
+	</bean>
+	
+	<bean id="cadastroCelularBean"
+		class="br.com.bradesco.web.ibpj.view.pix.adesao.bean.CadastroCelularBean"
+		scope="request">
+		<property name="form" ref="adesaoForm"></property>
+		<property name="bspiService" ref="bspiService"/>
+	</bean>
+	
+	<bean id="cadastroEmailBean"
+		class="br.com.bradesco.web.ibpj.view.pix.adesao.bean.CadastroEmailBean"
+		scope="request">
+		<property name="form" ref="adesaoForm"></property>
+		<property name="bspiService" ref="bspiService"/>
+	</bean>
+	
+	<bean id="trocarPaisBean"
+		class="br.com.bradesco.web.ibpj.view.pix.adesao.bean.TrocarPaisBean"
+		scope="request">
+		<property name="form" ref="adesaoForm"></property>
+		<property name="transform" ref="transferenciaForm"></property>
+		
+	</bean>
+	
+	<bean id="termoDeUsoBean"
+		class="br.com.bradesco.web.ibpj.view.pix.adesao.bean.TermoDeUsoBean"
+		scope="request">
+		<property name="form" ref="adesaoForm"></property>
+	</bean>
+	
+	<bean id="selecaoAgenciaContaBean"
+		class="br.com.bradesco.web.ibpj.view.pix.adesao.bean.SelecaoAgenciaContaBean"
+		scope="request">
+		<property name="adesaoService" ref="adesaoService"/>
+		<property name="form" ref="adesaoForm"></property>
+		<property name="bspiService" ref="bspiService"/>
+	</bean>
+	
+	<bean id="horariosLimiteBean"
+		class="br.com.bradesco.web.ibpj.view.pix.adesao.bean.HorariosLimiteBean"
+		scope="request">
+		<property name="form" ref="adesaoForm"></property>
+	</bean>
+	
+	<bean id="cadastroChaveOcultaBean"
+		class="br.com.bradesco.web.ibpj.view.pix.adesao.bean.CadastroChaveOcultaBean"
+		scope="request">
+		<property name="form" ref="adesaoForm"></property>
+	</bean>
+	
+	<!-- SERVIÇO ##################### -->
+	<bean id="adesaoService"
+		class="br.com.bradesco.web.ibpj.service.business.adesao.impl.AdesaoServiceImpl">
+	</bean>
+	<bean id="bspiService"
+		class="br.com.bradesco.web.ibpj.service.business.bspi.impl.BspiServiceImpl">
+	</bean>
+	<bean id="pixTransacaoService"
+		class="br.com.bradesco.web.ibpj.pix.transacao.service.impl.PixTransacaoImpl">
+	</bean>
+	
+	<!-- FORM ##################### -->
+	<bean id="adesaoForm"
+		class="br.com.bradesco.web.ibpj.view.pix.adesao.bean.AdesaoForm"
+		scope="request">
+	</bean>
+		<!-- FORM ##################### -->
+	<bean id="transferenciaForm"
+		class="br.com.bradesco.web.ibpj.view.pix.transferencia.bean.TransferenciaForm"
+		scope="request">
+	</bean>
+	
+	<bean id="processaComprovanteAdesaoBean"
+		class="br.com.bradesco.web.ibpj.view.pix.adesao.bean.ProcessaComprovanteAdesaoBean"
+		scope="request">
+	</bean>
+	
+</beans>

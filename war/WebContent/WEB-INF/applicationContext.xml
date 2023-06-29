@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<!-- ======================================================================================= -->  
+<!-- ========================= DEFINICIONES DE NEGOCIO Y SERVICIOS ========================= -->  
+<!-- ======================================================================================= -->  
+
+<beans>	
+	
+	<!-- ========================= DEFINICION de GESTOR DE CONFIGURACION  ========================= -->
+	
+	<!-- Configurer that replaces ${...} placeholders with values from a properties file -->
+	<!-- Posibilidade da carga externa do arquivo de propiedades  -->
+	<bean id="applicationPropertyConfigurer" 
+		  class="br.com.bradesco.web.ibpj.application.propertyPlaceHolder.IbpjPlaceholderConfigurer">
+	     <!-- 1.- Parametro de maquina virtual que buscará para encontrar la ruta del application.properties -->
+	    <property name="environmentParameter"><value>environmentConfig</value></property>
+	    <!-- 2.- Localizacion absoluta externa en donde buscará como segunda opcion para encontrar el application.properties -->
+	    <property name="variablePreExternalLocation"><value>apps.config</value></property>
+	    <property name="externalLocation"><value>file:/suportedbdc_apl/ibpj/config/ibpj.properties</value></property>
+        <!-- 3.- Ruta relativa del application properties ( dentro del war ) en donde se buscara como tercera opcion -->
+		<property name="locations">
+			<list>
+				<value>classpath*:config/application.properties</value>	
+				<value>file:/suportedbdc_apl/ibpj/config/ibpj.properties</value>
+				<value>file:/suportedbdc_apl/ibpj/config/app/application.properties</value>
+				<value>file:/suportedbdc_apl/ibpj/ibpjpix/config/application.properties</value>
+				<value>file:/suportedbdc_apl/ibpj/ibpjsaldosextratos/config/saldoextrato.properties</value>
+                <value>file:/suportedbdc_apl/ibpj/ibpjsaldosextratos/config/webcanais/config.properties</value>
+                <value>file:/suportedbdc_apl/ibpj/ibpjsaldosextratos/config/webcanais/WebCanais.properties</value>
+                <value>file:/suportedbdc_apl/ibpj/ibpjsaldosextratos/config/webcanais/Blocos.properties</value>
+				
+			</list>
+		</property>
+
+		<property name="systemPropertiesModeName"><value>SYSTEM_PROPERTIES_MODE_NEVER</value></property>
+		
+		<!-- Ignora parámetros no representados en application.properties permitiendo arrancar de todas formas 
+		     la aplicación	-->		
+		<property name="ignoreUnresolvablePlaceholders"><value>false</value></property>
+	</bean>
+</beans>

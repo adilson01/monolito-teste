@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appdeployment:Deployment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:appdeployment="http://www.ibm.com/websphere/appserver/schemas/5.0/appdeployment.xmi" xmi:id="Deployment_1598286580160">
+  <deployedObject xmi:type="appdeployment:ApplicationDeployment" xmi:id="ApplicationDeployment_1598286580160" deploymentId="0" startingWeight="1" binariesURL="/suportedbdc_apl/ibpj/ibpjpix/apl/ibpjpix.ear" useMetadataFromBinaries="false" enableDistribution="true" createMBeansForResources="true" reloadEnabled="false" appContextIDForSecurity="href:LABS184Cell01/ibpjpix" filePermission=".*\.dll=755#.*\.so=755#.*\.a=755#.*\.sl=755" allowDispatchRemoteInclude="false" allowServiceRemoteInclude="false" asyncRequestDispatchType="DISABLED" standaloneModule="true" enableClientModule="false">
+    <targetMappings xmi:id="DeploymentTargetMapping_1598286580160" enable="true" target="ServerTarget_1598286580160"/>
+    <targetMappings xmi:id="DeploymentTargetMapping_1598286580161" enable="true" target="ServerTarget_1598286580161"/>
+    <classloader xmi:id="Classloader_1598286580160" mode="PARENT_LAST"/>
+    <modules xmi:type="appdeployment:WebModuleDeployment" xmi:id="WebModuleDeployment_1598286580160" deploymentId="1" startingWeight="10000" uri="ibpjpix.war" classloaderMode="PARENT_LAST" containsEJBContent="0">
+      <targetMappings xmi:id="DeploymentTargetMapping_1598286580162" target="ServerTarget_1598286580160"/>
+      <targetMappings xmi:id="DeploymentTargetMapping_1598286580163" target="ServerTarget_1598286580161"/>
+      <classloader xmi:id="Classloader_1598286580161">
+        <libraries xmi:id="LibraryRef_1601300033622" libraryName="IBPJ_INFRA_AWB_CWS" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033623" libraryName="IBPJ_EXT_GESTAOCONTEUDO" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033624" libraryName="IBPJ_COM_SUPORTEAUTENTICACAO" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033625" libraryName="IBPJ_COM_EMPRESA" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033626" libraryName="IBPJ_COM_PARAMETRIZACOES" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033627" libraryName="IBPJ_COM_SERVICOSEXTERNOS" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033628" libraryName="IBPJ_COM_LOGIN_CWS" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033629" libraryName="WEBCANAIS" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033630" libraryName="IBPJ_COM_LOGIN_PDC" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033631" libraryName="IBPJ_INFRA_COMUM" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033632" libraryName="IBPJ_INFRA_APL_LEGADO" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033633" libraryName="IBPJ_COM_PERFIL" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033634" libraryName="IBPJ_COM_OPERACAO" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033635" libraryName="IBPJ_COM_DADOSCLIENTE" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033636" libraryName="IBPJ_COM_PERSONALIZACAO" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033637" libraryName="ISD_LABS214" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033638" libraryName="IBPJ_EXT_COMUNS" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033639" libraryName="IBPJ_INFRA_ICP" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033640" libraryName="IBPJ_CONS_SALDOSEXTRATOS" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033641" libraryName="IBPJ_INFRA_COMUM_II" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033642" libraryName="ISD_3_1" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033643" libraryName="IBPJ_INFRA_AWB_CWS_EXTERNOS" sharedClassloader="true"/>
+        <libraries xmi:id="LibraryRef_1601300033644" libraryName="IBPJ_BANC_PIX" sharedClassloader="true"/>
+      </classloader>
+    </modules>
+    <properties xmi:id="Property_1598286580160" name="metadata.complete" value="false"/>
+  </deployedObject>
+  <deploymentTargets xmi:type="appdeployment:ServerTarget" xmi:id="ServerTarget_1598286580160" name="server_GE" nodeName="LABS184Node01"/>
+  <deploymentTargets xmi:type="appdeployment:ServerTarget" xmi:id="ServerTarget_1598286580161" name="ApacheLABS185" nodeName="LABS185"/>
+</appdeployment:Deployment>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+                       "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="false" default-dependency-check="none" default-autowire="no">
+
+	<!--
+		No arquivo faces-config.xml estamos utilizando um PhaseListener do spring
+		Que internamente identifica todos os bens "instanceof" PhaseListener registrados
+		e chama os métodos deles.
+		
+		Aqui nós registramos um PhaseListener para emular chamada JSF quando ocrrer
+		um acesso direto à URL em vez de usar uma navegação JSF normal.
+		
+		A infra criada agora emula o comportamento padrão do JSF que
+		(1) executa os getters dos beans
+		(2) executa um método de negócio
+		(3) verifica a regra de navegação a ser utilizada
+		(4) redireciona para algum jsp.
+		
+		Da forma que estava antes, ao acessar uma URL diretamente ocorria
+		a execução apenas do passo (4).
+	-->
+	
+	<bean id="urlToJsfPhaseListener" 
+		class="br.com.bradesco.web.ib.service.provider.filter.RedirectUrlToJsfPhaseListener">
+		<property name="logManager"><ref bean="logManager"/></property>
+		<property name="objectManager"><ref bean="objectManager"/></property>
+		
+		<!-- PODEMOS UTILIZAR REDIRECIONAMENTO POR PARÂMETRO -->
+		
+		<!--
+		<property name="nomeParametroRequestDefineAcessoDireto" value="INFRA_SERVICO"></property>
+		<property name="parametroRequestToManagedBean">
+			<map>
+				<entry key="IB_ADR" value="acessoDireto.inicializar" />
+			</map>
+		</property>
+		-->
+
+
+		<!-- E/OU -->
+
+
+		<!-- UTILIZAR REDIRECIONAMENTO AUTOMÁTICO (QUANDO NAO FOR NAVEGACAO JSF) -->
+		
+		<property name="detectarAcessoDiretoUrlAutomaticamente" value="true"></property>
+		<property name="urlToManagedBean">
+			<map>
+				<entry key="cadastrarNovaChave.jsf" value="selecaoAgenciaContaBean.initAdesao" />
+				<entry key="transferir.jsf" value="selecaoAgenciaContaTransferenciaBean.initTransferencia" />
+				<entry key="gerenciamentoChavesPix.jsf" value="gerenciamentoChavesPixBean.init" />
+				<entry key="confirmacaoCadastro.jsf" value="confirmacaoCadastroBean.init"/>
+				<entry key="conhecaOPix.jsf" value=""/>
+				<entry key="transferenciaComprovante.jsf" value="processaComprovanteBean.processaComprovante"/>
+				<entry key="transferenciaPendente.jsf" value="processaComprovanteBean.processaComprovantePendente"/>
+				<entry key="adesaoPendente.jsf" value="processaComprovanteAdesaoBean.processaComprovantePendente"/>
+				<entry key="gerenciamentoPendente.jsf" value="processaComprovanteGerenciamentoBean.processaComprovantePendente"/>
+				<entry key="comprovanteGerenciamento.jsf" value="gerenciamentoComprovanteBean.init"/>
+			</map>
+		</property>
+		
+	</bean>
+
+</beans>

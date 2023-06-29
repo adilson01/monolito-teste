@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+                              "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+<faces-config>                              
+	<application>
+		<view-handler>br.com.bradesco.web.aq.view.viewhandler.BradescoViewHandler</view-handler>
+		<variable-resolver>org.springframework.web.jsf.DelegatingVariableResolver</variable-resolver>
+		<locale-config>
+			<default-locale>pt_BR</default-locale>
+		</locale-config>
+		<message-bundle>br.com.bradesco.web.ibpj.view.bundle.Messages</message-bundle>
+	</application>
+ 
+	<factory>
+		<lifecycle-factory>br.com.bradesco.web.aq.view.lifecycle.BradescoLifecycleFactoryImpl</lifecycle-factory>
+	</factory>
+	
+	<lifecycle>
+ 		<phase-listener>br.com.bradesco.web.ib.service.provider.filter.UrlToJsfPhaseListenerWrapper</phase-listener>
+ 	</lifecycle>
+ 
+ 	<!-- <converter>
+		<converter-id>BigDecimalConverterSaldos</converter-id>	
+		<converter-class>br.com.bradesco.web.ibpj.view.cobrancacontratacao.converter.BigDecimalConverter</converter-class>	
+	</converter> -->
+	
+</faces-config>

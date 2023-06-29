@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+                              "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+<faces-config>
+	<!--  Regras de navegação do servicoA EXEMPLO ##################### -->
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		
+		<navigation-case>
+			<from-outcome>selecaoAgenciaContaTransferencia</from-outcome>
+			<to-view-id>/selecaoAgenciaContaTransferencia.tiles</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>transferenciaConfirmacaoDados</from-outcome>
+			<to-view-id>/transferenciaConfirmacaoDados.tiles</to-view-id>
+		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>selecionarChave</from-outcome>
+			<to-view-id>/selecionarChave.tiles</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>inserirValor</from-outcome>
+			<to-view-id>/inserirValor.tiles</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>transferenciaAgenciaConta</from-outcome>
+			<to-view-id>/transferenciaAgenciaConta.tiles</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>transferenciaComprovante</from-outcome>
+			<to-view-id>/transferenciaComprovante.tiles</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>comprovante</from-outcome>
+			<to-view-id>/comprovante.tiles</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>selecionarBanco</from-outcome>
+			<to-view-id>/selecionarBanco.tiles</to-view-id>
+		</navigation-case>
+		
+	</navigation-rule>
+</faces-config>
+

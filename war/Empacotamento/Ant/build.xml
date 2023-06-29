@@ -1,0 +1,146 @@
+﻿<project name="build" default="tgt-aplicacao">
+	<!--
+	tgt-aplicacao (ear)
+	tgt-aplicacao-ejb (ejb)
+	tgt-aplicacao-web (web)
+	tgt-aplicacao_din (zip com jsps)
+	tgt-aplicacao_stat (zip com html, js, etc)
+	tgt-imagens (zip com imagens)
+	tgt-banco_dados (zip com sql)
+	tgt-properties (zip com properties)
+	-->
+	
+	<!-- Parâmetros variáveis dos projetos
+		- Centro de custo
+		- Nome do arquivo .WAR
+		- Nome dos diretórios contendo:
+			- Fontes (.java, .properties, .xml, etc...)
+			- Conteúdo Web (.jsp, .xml, .css, etc...)
+	-->
+	<property file="pacote.properties" />
+
+	<!-- UTILIZAR  COMPILADOR DO ECLIPSE (JDT) PARA ESTE SCRIPT-->
+	<!--<property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>-->
+    
+	<!--Propriedades implícitas da ferramenta de empacotamento -->
+	<property name="caminho.pacote" value="${empacotamento.caminho.pacote}"/>
+	<property name="xml.dir" value="${empacotamento.xml.dir}"/>
+    	
+	<!--Propriedade explícita do arquivo de dependencias externas do centro de custo LIBS (dependecias.xml) -->
+	<property name="j2ee.jar" value="${empacotamento.pasta.dependencia.id.j2ee-1.4}"/>
+
+	<!--BUENO 25/02/2011 -->
+	<!--NECESSARIO APAGAR AS CLASSES COMPILADAS, CASO ELAS JÁ ESTEJAM NO REPOSITORIO (STARTEAM) --> 
+	<property name="contextWeb_classes.dir" value="${contextWeb.dir}/WEB-INF/classes"/>	
+	
+	<!-- cria o arquivo .EAR -->
+	<target name="tgt-aplicacao" depends="create-war">
+		<ear destfile="${caminho.pacote}" appxml="${xml.dir}/ear/META-INF/application.xml">
+			<fileset dir="${dist.dir}" includes="*.jar,*.war"/>
+		</ear>
+		
+		<delete dir="${classes.dir}"/>
+		<delete file="${dist.dir}/${package.war.name}"/>
+		
+	</target>
+	
+	<!-- Pré-requisitos para o processo de build
+		- Remoção de classes compiladas que se encontram no repositório (STARTEAM)
+		- Remoção de diretórios
+		- Criação de diretórios
+		- Cópia de arquivos que não são compilados (.properties, .xml, etc...)
+	-->
+	<target name="init">
+		<!--BUENO 25/02/2011 -->
+		<!--NECESSARIO PARA APAGAR AS CLASSES COMPILADAS, CASO ELAS JÁ ESTEJAM NO REPOSITORIO (STARTEAM) -->	
+		<delete dir="${contextWeb_classes.dir}"/>
+		
+		<delete dir="${dist.dir}"/>
+		<mkdir dir="${dist.dir}"/>
+		<mkdir dir="${classes.dir}"/>
+
+		<!--BUENO 04/08/2011 -->
+		<!-- Necessário copiar arquivos estáticos que se encontram dentro do diretorio de fontes (*.properties, *.xml, etc...) -->
+		  <copy todir="${classes.dir}">
+		    <fileset dir="${src.dir}">
+		      <exclude name="**/*.java"/>
+		    </fileset>
+		  </copy>
+
+	</target>
+	
+	<!-- Compila -->
+	<target name="compile" depends="init">
+		<!-- classpath -->
+		<path id="cp">
+			<fileset dir="${libWebApp.dir}" includes="**/*.jar"/>
+			<fileset file="${j2ee.jar}"/>
+			<fileset dir="${empacotamento.pasta.dependencia.ibpj_banc_pix}" includes="**/*.jar"/>
+			<fileset dir="${empacotamento.pasta.dependencia.ibpj_ext_comuns}" includes="**/*.jar"/>
+			<fileset dir="${empacotamento.pasta.dependencia.ibpj_com_dadoscliente}" includes="**/*.jar"/>
+			<fileset dir="${empacotamento.pasta.dependencia.ibpj_com_login_cws}" includes="**/*.jar"/>
+			<fileset dir="${empacotamento.pasta.dependencia.ibpj_com_parametrizacoes}" includes="**/*.jar"/>
+			<fileset dir="${empacotamento.pasta.dependencia.ibpj_com_suporteautenticacao}" includes="**/*.jar"/>
+			<fileset dir="${empacotamento.pasta.dependencia.ibpj_infra_comum}" includes="**/*.jar"/>
+			<fileset dir="${empacotamento.pasta.dependencia.ibpj_infra_comum_ii}" includes="**/*.jar"/>
+			<fileset dir="${empacotamento.pasta.dependencia.ibpj_infra_apl_legado}" includes="**/*.jar"/>
+			<fileset dir="${empacotamento.pasta.dependencia.ibpj_com_operacao}" includes="**/*.jar"/>
+			<fileset dir="${empacotamento.pasta.dependencia.ibpj_com_servicosexternos}" includes="**/*.jar"/>
+			<fileset dir="${empacotamento.pasta.dependencia.ibpj_ext_gestaoconteudo}" includes="**/*.jar"/>
+			<fileset dir="${empacotamento.pasta.dependencia.ibpj_com_empresa}" includes="**/*.jar"/>
+			<fileset dir="${empacotamento.pasta.dependencia.ibpj_infra_awb_cws_externos}" includes="**/*.jar"/>
+			<fileset dir="${empacotamento.pasta.dependencia.ibpj_infra_awb_cws}" includes="**/*.jar"/>
+			<fileset dir="${empacotamento.pasta.dependencia.ibpj_cons_saldosextratos}" includes="**/*.jar"/>
+			<fileset dir="${empacotamento.pasta.dependencia.webcanais}" includes="**/*.jar"/>
+			<fileset dir="${empacotamento.pasta.dependencia.Terceiros}" includes="**/*.jar"/>
+      
+		</path>
+		<echopath pathid="cp" />
+		
+        <javac debug="true" debuglevel="source,lines,vars" srcdir="${src.dir}" destdir="${classes.dir}" includeAntRuntime="false" target="1.6" source="1.6" nowarn="true" >
+                <classpath refid="cp" /> 
+        </javac>
+
+	</target>
+
+	<!-- cria o arquivo .WAR -->
+	<target name="create-war" depends="compile">
+		<war destfile="${dist.dir}/${package.war.name}" webxml="${contextWeb.dir}/WEB-INF/web.xml">
+			<classes dir="${classes.dir}"/>
+			<!--fileset dir="${src.dir}" excludes="**/*.java"/-->
+			<fileset dir="${contextWeb.dir}"/>
+			<webinf dir="${xml.dir}/ear/${package.war.name}/WEB-INF"/>
+		</war>
+	</target>
+
+<!-- = = = = = = = = = = = = = = = = =
+macrodef: echopath
+= = = = = = = = = = = = = = = = = -->
+<macrodef name="echopath">
+	
+	<attribute name="pathid"/>
+	
+	<sequential>
+		
+		<property name="line.pathprefix" value="| |-- "/>
+		
+		<!-- get given path in a printable form -->
+		<pathconvert pathsep="${line.separator}${line.pathprefix}"
+			property="echo.@{pathid}"
+			refid="@{pathid}">
+		</pathconvert>
+		
+		<echo>Bibliotecas Utilizadas na Compilação @{pathid}
+		
+		${line.pathprefix}${echo.@{pathid}}</echo>
+		
+	</sequential>
+	
+</macrodef>
+	
+	
+	
+	</project>
+
+
+

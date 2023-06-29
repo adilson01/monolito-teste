@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+                              "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+<faces-config>
+	<!--  Regras de navegação do servicoA EXEMPLO ##################### -->
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		
+		<navigation-case>
+			<from-outcome>gerenciamentoChavesPix</from-outcome>
+			<to-view-id>/gerenciamentoChavesPix.tiles</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>confirmacaoDadosExclusao</from-outcome>
+			<to-view-id>/confirmacaoDadosExclusao.tiles</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>modalInfoExclusao</from-outcome>
+			<to-view-id>/modalInfoExclusao.tiles</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>gerenciamentoComprovante</from-outcome>
+			<to-view-id>/gerenciamentoComprovante.tiles</to-view-id>
+		</navigation-case>
+		
+				<!-- Tela deo autenticador -->
+		<navigation-case>
+			<from-outcome>autenticadorGerenciamento</from-outcome>
+			<to-view-id>/autenticadorGerenciamento.tiles</to-view-id>
+		</navigation-case>	
+		
+				
+	</navigation-rule>
+</faces-config>
+

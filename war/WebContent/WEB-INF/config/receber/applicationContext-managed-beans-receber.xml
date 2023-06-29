@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd"
+	default-lazy-init="true">
+
+	<bean id="vincularChaveBean"
+		class="br.com.bradesco.web.ibpj.view.pix.receber.bean.VincularChaveBean"
+		scope="request">
+		<!-- <property name="form" ref=""></property> -->
+	</bean>
+
+	<bean id="criarQRCodeBean"
+		class="br.com.bradesco.web.ibpj.view.pix.receber.bean.CriarQRCodeBean"
+		scope="request">
+		<!-- <property name="form" ref=""></property> -->
+	</bean>
+
+	<bean id="redirecionarCadastramentoChavePixBean"
+		class="br.com.bradesco.web.ibpj.view.pix.receber.bean.CadastrarChaveBean"
+		scope="request">
+		<property name="form" ref="adesaoForm"></property>
+	</bean>
+
+
+	<bean id="confirmacaoDadosQrCodeBean"
+		class="br.com.bradesco.web.ibpj.view.pix.receber.bean.ConfirmacaoDadosQrCodeBean"
+		scope="request">
+		<property name="gerenciamentoForm" ref="gerenciamentoForm"></property>
+		<property name="gerenciamentoService" ref="gerenciamentoService"></property>
+	</bean>
+
+
+</beans>

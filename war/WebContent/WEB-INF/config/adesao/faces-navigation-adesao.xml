@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+                              "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+<faces-config>
+	<!--  Regras de navegação do servicoA EXEMPLO ##################### -->
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		
+		<navigation-case>
+			<from-outcome>confirmacaoCadastro</from-outcome>
+			<to-view-id>/confirmacaoCadastro.tiles</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>erroCadastro</from-outcome>
+			<to-view-id>/erroCadastro.tiles</to-view-id>
+		</navigation-case>
+		
+		<!-- Tela deo autenticador -->
+		<navigation-case>
+			<from-outcome>autenticador</from-outcome>
+			<to-view-id>/autenticador.tiles</to-view-id>
+		</navigation-case>	
+		
+		<navigation-case>
+			<from-outcome>cadastroCelular</from-outcome>
+			<to-view-id>/cadastroCelular.tiles</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>cadastroEmail</from-outcome>
+			<to-view-id>/cadastroEmail.tiles</to-view-id>
+		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>cadastrarChave</from-outcome>
+			<to-view-id>/cadastrarChave.tiles</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>confirmacaoDados</from-outcome>
+			<to-view-id>/confirmacaoDados.tiles</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>validacaoPosse</from-outcome>
+			<to-view-id>/validacaoPosse.tiles</to-view-id>
+		</navigation-case>		
+		
+		<navigation-case>
+			<from-outcome>selecaoAgenciaConta</from-outcome>
+			<to-view-id>/selecaoAgenciaConta.tiles</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>validacaoPosseEmail</from-outcome>
+			<to-view-id>/validacaoPosseEmail.tiles</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>termoDeUso</from-outcome>
+			<to-view-id>/termoDeUso.tiles</to-view-id>
+		</navigation-case>
+		
+		<!-- Modal Informação Lotes -->
+		<navigation-case>
+			<from-outcome>trocarPais</from-outcome>
+			<to-view-id>/trocarPais.tiles</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>cadastroChaveOculta</from-outcome>
+			<to-view-id>/cadastroChaveOculta.tiles</to-view-id>
+		</navigation-case>
+		
+				<!-- Modal de erro do modal -->
+		<navigation-case>
+			<from-outcome>erroModal</from-outcome>
+			<to-view-id>/erroModal.tiles</to-view-id>
+		</navigation-case>	
+		
+	</navigation-rule>
+</faces-config>
+

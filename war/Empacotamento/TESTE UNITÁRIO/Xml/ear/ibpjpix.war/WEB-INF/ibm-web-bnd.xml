@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-bnd xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://websphere.ibm.com/xml/ns/javaee"
+    xsi:schemaLocation="http://websphere.ibm.com/xml/ns/javaee http://websphere.ibm.com/xml/ns/javaee/ibm-web-bnd_1_0.xsd" version="1.0">
+  <virtual-host name="ne12_vh"/>
+  <resource-ref name="jdbc/OFPJD000" binding-name="jdbc/ofpjd000_sql"/>
+  <resource-ref name="jdbc/dbCorp" binding-name="jdbc/dbcorp_sql"/>
+  <resource-ref name="jdbc/awbdbacess" binding-name="jdbc/awbdbacess"/>
+  <resource-ref name="jdbc/PRZAD000" binding-name="jdbc/przad000_db2udb"/>
+</web-bnd>
+

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+                                   "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+
+	<definition name="warbase" extends="nib.main">
+		<put name="codigoFamiliaServico" value="1" />
+		<put name="messageBundle" value="br.com.bradesco.web.ibpj.view.bundle.Messages" />
+		<put name="codigoServico" value="JAD" />
+		<putList name="css">
+			<item value="" link="geral/estrutura.css" tooltip="screen, print" />
+			<item value="" link="geral/interna.css" tooltip="screen, print" />
+			<item value="" link="geral/jquery.jqmodal.css" tooltip="screen" />
+			<item value="" link="geral/jquery.tooltip.css" tooltip="screen" />
+			<item value="" link="geral/jquery.autocomplete.css" tooltip="screen" />
+			<item value="" link="geral/jquery.combo.css" tooltip="screen" />
+			<item value="" link="geral/datePicker.css" tooltip="screen" />
+			<item value="" link="geral/tabelaExpansiva.css" tooltip="screen, print" />
+			<item value="" link="geral/tabelaOrdenada.css" tooltip="screen, print" />
+			<item value="" link="geral/tableRowSpan.css" tooltip="screen, print" />
+			<item value="" link="geral/estrutura-novolayout.css" tooltip="screen, print" />
+		</putList>
+		<putList name="js_infra">
+			<item value="" link="sei/sei.js" />
+			<item value="" link="sei/seiMultiplo.js" />
+			<item value="" link="geral/jquery.ui.js" />
+			<item value="" link="geral/jquery.jqmodal.js" />
+			<item value="" link="geral/jquery.combo.js" />
+			<item value="" link="geral/jquery.tooltip.js" />
+			<item value="" link="geral/jquery.autocomplete.js" />
+			<item value="" link="geral/jquery.atalho.js" />
+			<item value="" link="geral/swfobject.js" />
+			<item value="" link="geral/default.js" />
+			<item value="" link="geral/jquery.cookie.min.js" />
+			<item value="" link="geral/print.js" />
+			<item value="" link="geral/mail.js" />
+			<item value="" link="geral/atendimento.js" />
+			<item value="" link="geral/jqDnR.js" />
+			<item value="" link="geral/jquery.livequery.js" />
+			<item value="" link="geral/jquery.datepicker.js" />
+			<item value="" link="geral/date.js" />
+			<item value="" link="geral/currency.js" />
+			<item value="" link="geral/validacoes.js" />
+			<item value="" link="geral/tabelaExpansiva.js" />
+			<item value="" link="geral/guide/table-sorter.js" />
+			<item value="" link="geral/AJAX.js" />
+			<item value="" link="geral/guide/campo-busca.js" />
+
+			<!-- Utilizar apenas para ver o guide / facelift local -->
+		</putList>
+		<putList name="css_sei">
+			<item value="" link="geral/estrutura-novolayout.css" tooltip="screen, print" />
+			<item value="" link="geral/estrutura.css" tooltip="screen, print" />
+			<item value="" link="geral/interna.css" tooltip="screen, print" />
+			<item value="" link="geral/impressao.css" tooltip="screen, print" />
+			<item value="" link="geral/tabelaExpansiva.css" tooltip="screen, print" />
+			<item value="" link="geral/tabelaOrdenada.css" tooltip="screen, print" />
+		</putList>
+		<putList name="js_sei">
+             <item value="" link="sei/sei.js" />
+             <item value="" link="sei/seiMultiplo.js" />   
+		</putList>
+	</definition>
+
+
+	<!-- ################### TELAS ##################################################### -->
+
+	<definition name="/validacaoPosse.tiles" extends="warbase">
+		<put name="body" value="/WEB-INF/jsp/adesao/validacaoPosse.jsp" />
+		<put name="descricaoServico" value="titulo_validacao_posse" />
+		<put name="numeroTela" value="02" />
+		<put name="passo" value="2" />
+		<!-- <put name="nivelCaminhoPao" value="1" /> -->
+	</definition>
+
+	<definition name="/validacaoPosseEmail.tiles" extends="warbase">
+		<put name="body" value="/WEB-INF/jsp/adesao/validacaoPosse.jsp" />
+		<put name="descricaoServico" value="titulo_validacao_posse_email" />
+		<put name="numeroTela" value="02" />
+		<put name="passo" value="2" />
+		<!-- <put name="nivelCaminhoPao" value="1" /> -->
+	</definition>
+
+
+	<definition name="/confirmacaoCadastro.tiles" extends="warbase">
+		<put name="body" value="/WEB-INF/jsp/adesao/confirmacaoCadastro.jsp" />
+		<put name="descricaoServico" value="confirmacaoCadastro_titulo" />
+		<put name="numeroTela" value="02" />
+		<put name="passo" value="2" />
+		<!-- <put name="nivelCaminhoPao" value="1" /> -->
+	</definition>
+
+	<definition name="/erroCadastro.tiles" extends="warbase">
+		<put name="body" value="/WEB-INF/jsp/adesao/confirmacaoCadastro.jsp" />
+		<put name="descricaoServico" value="erroCadastro_titulo" />
+		<put name="numeroTela" value="02" />
+		<put name="passo" value="2" />
+		<!-- <put name="nivelCaminhoPao" value="1" /> -->
+	</definition>
+
+	<!-- ###################################################################################################### -->
+	<!-- ############# TELA DO AUTENTICADOR ############### -->
+	<!-- ###################################################################################################### -->
+
+	<definition name="autenticador.tiles" extends="warbase">
+		<put name="descricaoServico" value="autenticador_titulo" />
+		<put name="body" value="/WEB-INF/jsp/common/autenticador.jsp" />
+		<put name="numeroTela" value="01" />
+		<put name="passo" value="1" />
+	</definition>
+
+	<!-- Tela de cadastro de chave pix -->
+
+	<definition name="/cadastrarChave.tiles" extends="warbase">
+		<put name="body" value="/WEB-INF/jsp/adesao/cadastrarChave.jsp" />
+		<put name="descricaoServico" value="titulo_cadastrar_chave" />
+		<put name="numeroTela" value="01" />
+		<put name="passo" value="1" />
+		<!-- <put name="nivelCaminhoPao" value="1" /> <put name="passo" value="1" 
+			/> -->
+	</definition>
+
+
+	<definition name="/cadastroCelular.tiles" extends="warbase">
+		<put name="body" value="/WEB-INF/jsp/adesao/cadastroCelular.jsp" />
+		<put name="descricaoServico" value="titulo_cadastro_celular" />
+		<put name="numeroTela" value="05" />
+		<put name="passo" value="5" />
+		<!-- <put name="nivelCaminhoPao" value="1" /> -->
+	</definition>
+
+	<definition name="/cadastroEmail.tiles" extends="warbase">
+		<put name="body" value="/WEB-INF/jsp/adesao/cadastroEmail.jsp" />
+		<put name="descricaoServico" value="titulo_cadastro_email" />
+		<put name="numeroTela" value="12" />
+		<put name="passo" value="12" />
+		<!-- <put name="nivelCaminhoPao" value="1" /> -->
+	</definition>
+
+	<definition name="/confirmacaoDados.tiles" extends="warbase">
+		<put name="body" value="/WEB-INF/jsp/adesao/confirmacaoDados.jsp" />
+		<put name="descricaoServico" value="confirmacao_dados" />
+		<put name="numeroTela" value="09" />
+		<put name="passo" value="9" />
+		<putList name="js">
+            <item value="" link="sei/seiMultiplo.js" />
+        </putList>
+        <putList name="js_sei">
+            <item value="" link="sei/sei.js" />
+            <item value="" link="sei/seiMultiplo.js" />   
+        </putList>       
+        <putList name="css_sei">   
+        </putList>    
+		<!-- config tiles wi <put name="nivelCaminhoPao" value="1" /> -->
+	</definition>
+
+	<!-- ###################################################################################################### -->
+	<!-- ############# TELAS DE BASE PARA O MODAL ############### -->
+	<!-- ###################################################################################################### -->
+
+	<!-- Base dos modais do projeto -->
+	<definition name="base.modal.tiles" extends="nib.modal">
+		<put name="codigoFamiliaServico" value="P" />
+		<put name="messageBundle" value="br.com.bradesco.web.ibpj.view.bundle.Messages" />
+		<putList name="css">
+			<item value="" link="geral/estrutura.css" tooltip="screen, print" />
+			<item value="" link="geral/interna.css" tooltip="screen, print" />
+			<item value="" link="geral/jquery.jqmodal.css" tooltip="screen" />
+			<item value="" link="geral/jquery.tooltip.css" tooltip="screen" />
+			<item value="" link="geral/jquery.autocomplete.css" tooltip="screen" />
+			<item value="" link="geral/jquery.combo.css" tooltip="screen" />
+			<item value="" link="geral/datePicker.css" tooltip="screen" />
+			<item value="" link="geral/tabelaExpansiva.css" tooltip="screen, print" />
+			<item value="" link="geral/tabelaOrdenada.css" tooltip="screen, print" />
+			<item value="" link="geral/tableRowSpan.css" tooltip="screen, print" />
+			<item value="" link="geral/estrutura-novolayout.css" tooltip="screen, print" />
+		</putList>
+		<putList name="js_infra">
+			<item value="" link="sei/sei.js" />
+            <item value="" link="sei/seiMultiplo.js" /> 
+			<item value="" link="geral/jquery.ui.js" />
+			<item value="" link="geral/jquery.jqmodal.js" />
+			<item value="" link="geral/jquery.combo.js" />
+			<item value="" link="geral/jquery.tooltip.js" />
+			<item value="" link="geral/jquery.autocomplete.js" />
+			<item value="" link="geral/jquery.atalho.js" />
+			<item value="" link="geral/swfobject.js" />
+			<item value="" link="geral/default.js" />
+			<item value="" link="geral/jquery.cookie.min.js" />
+			<item value="" link="geral/print.js" />
+			<item value="" link="geral/mail.js" />
+			<item value="" link="geral/atendimento.js" />
+			<item value="" link="geral/jqDnR.js" />
+			<item value="" link="geral/jquery.livequery.js" />
+			<item value="" link="geral/jquery.datepicker.js" />
+			<item value="" link="geral/date.js" />
+			<item value="" link="geral/currency.js" />
+			<item value="" link="geral/validacoes.js" />
+			<item value="" link="geral/tabelaExpansiva.js" />
+			<item value="" link="geral/guide/table-sorter.js" />
+			<item value="" link="geral/AJAX.js" />
+			<item value="" link="geral/guide/campo-busca.js" />
+
+			<!-- Utilizar apenas para ver o guide / facelift local -->
+	</putList>
+		<putList name="css_sei">
+			<item value="" link="geral/estrutura-novolayout.css" tooltip="screen, print" />
+			<item value="" link="geral/estrutura.css" tooltip="screen, print" />
+			<item value="" link="geral/interna.css" tooltip="screen, print" />
+			<item value="" link="geral/impressao.css" tooltip="screen, print" />
+			<item value="" link="geral/tabelaExpansiva.css" tooltip="screen, print" />
+			<item value="" link="geral/tabelaOrdenada.css" tooltip="screen, print" />
+		</putList>
+		<putList name="js_sei">
+			<item value="" link="sei/sei.js" />
+            <item value="" link="sei/seiMultiplo.js" />
+		</putList>
+	</definition>
+
+	<!-- Base dos modais SIMPLES -->
+	<definition name="simplesModal.tiles" extends="base.modal.tiles">
+		<put name="codigoServico" value="JAD" />
+	</definition>
+
+	<!-- Modal Informativo de Lote -->
+	<definition name="trocarPais.tiles" extends="simplesModal.tiles">
+		<put name="body" value="/WEB-INF/jsp/adesao/trocarPais.jsp" />
+		<put name="largura" value="800px" />
+		<put name="numeroTela" value="05" />
+	</definition>
+
+	<definition name="termoDeUso.tiles" extends="simplesModal.tiles">
+		<put name="body" value="/WEB-INF/jsp/adesao/termoDeUso.jsp" />
+		<put name="largura" value="800px" />
+		<put name="numeroTela" value="09" />
+	</definition>
+
+
+	<definition name="/selecaoAgenciaConta.tiles" extends="warbase">
+		<put name="body" value="/WEB-INF/jsp/adesao/selecaoAgenciaConta.jsp" />
+		<put name="descricaoServico" value="selecao_agencia_conta_titulo" />
+		<put name="numeroTela" value="01" />
+		<put name="passo" value="1" />
+		<put name="razoesDasContas" value="cc,cp" />
+		<!-- config tiles wi <put name="nivelCaminhoPao" value="1" /> -->
+	</definition>
+
+	<definition name="/cadastroChaveOculta.tiles" extends="warbase">
+		<put name="body" value="/WEB-INF/jsp/adesao/cadastroChaveOculta.jsp" />
+		<put name="descricaoServico" value="chave_aleatoria_titulo" />
+		<put name="numeroTela" value="01" />
+		<put name="passo" value="1" />
+		<!-- config tiles wi <put name="nivelCaminhoPao" value="1" /> -->
+	</definition>
+
+	<definition name="/conhecaOPix.tiles" extends="warbase">
+		<put name="body" value="/WEB-INF/jsp/adesao/conhecaOPix.jsp" />
+		<put name="descricaoServico" value="" />
+		<put name="numeroTela" value="01" />
+		<put name="passo" value="1" />
+		<!-- config tiles wi <put name="nivelCaminhoPao" value="1" /> -->
+	</definition>
+
+	<!-- Modal Informativo erro -->
+	<definition name="erroModal.tiles" extends="simplesModal.tiles">
+		<put name="body" value="/WEB-INF/jsp/common/erroModal.jsp" />
+		<put name="largura" value="380px"/>
+		<put name="numeroTela" value="05" />
+	</definition>
+
+</tiles-definitions>

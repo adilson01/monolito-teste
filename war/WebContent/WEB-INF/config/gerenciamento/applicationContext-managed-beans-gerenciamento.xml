@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:util="http://www.springframework.org/schema/util" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd"
+	default-lazy-init="true">
+
+	<!-- FORM ##################### -->
+	<bean id="gerenciamentoForm"
+		class="br.com.bradesco.web.ibpj.view.pix.gerenciamento.bean.GerenciamentoForm"
+		scope="request">
+	</bean>
+
+	<!-- SERVIÇO ##################### -->	
+	<bean id="bspiService"
+		class="br.com.bradesco.web.ibpj.service.business.bspi.impl.BspiServiceImpl">
+	</bean>
+	
+	<bean id="gerenciamentoService"
+		class="br.com.bradesco.web.ibpj.service.business.gerenciamento.impl.GerenciamentoServiceImpl">
+	</bean>
+	
+		<!-- Comprovante inicio  -->
+	<bean id="gerenciamentoChavesPixBean"
+		class="br.com.bradesco.web.ibpj.view.pix.gerenciamento.bean.GerenciamentoChavesPixBean"
+		scope="request">
+		<property name="gerenciamentoForm" ref="gerenciamentoForm"></property>
+		<property name="bspiService" ref="bspiService"></property>
+	</bean>
+	
+	<bean id="confirmacaoDadosExclusaoBean"
+		class="br.com.bradesco.web.ibpj.view.pix.gerenciamento.bean.ConfirmacaoDadosExclusaoBean"
+		scope="request">
+		<property name="gerenciamentoForm" ref="gerenciamentoForm"></property>
+		<property name="gerenciamentoService" ref="gerenciamentoService"></property>
+	</bean>
+	
+	<bean id="gerenciamentoComprovanteBean"
+		class="br.com.bradesco.web.ibpj.view.pix.gerenciamento.bean.GerenciamentoComprovanteBean"
+		scope="request">
+	</bean>
+	
+	<bean id="processaComprovanteGerenciamentoBean"
+		class="br.com.bradesco.web.ibpj.view.pix.gerenciamento.bean.ProcessaComprovanteGerenciamentoBean"
+		scope="request">
+	</bean>
+</beans>

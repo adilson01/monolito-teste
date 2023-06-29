@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:util="http://www.springframework.org/schema/util" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd"
+	default-lazy-init="true">
+
+	
+	<!-- FORM ##################### -->
+	<bean id="transferenciaForm"
+		class="br.com.bradesco.web.ibpj.view.pix.transferencia.bean.TransferenciaForm"
+		scope="request">
+	</bean>
+	
+	<!-- Comprovante inicio  -->
+	<bean id="transferenciaComprovanteBean"
+		class="br.com.bradesco.web.ibpj.view.pix.transferencia.bean.TransferenciaComprovanteBean"
+		scope="request">
+	</bean>
+	
+	<bean id="processaComprovanteBean"
+		class="br.com.bradesco.web.ibpj.view.pix.transferencia.bean.ProcessaComprovanteBean"
+		scope="request">
+	</bean>
+
+	<bean id="comprovantePendenteBean"
+		class="br.com.bradesco.web.ibpj.view.pix.transferencia.bean.ComprovantePendenteBean"
+		scope="request">
+	</bean>
+
+	<!-- Comprovante fim  -->
+	<bean id="transferenciaConfirmacaoDadosBean" 
+		  class="br.com.bradesco.web.ibpj.view.pix.transferencia.bean.TransferenciaConfirmacaoDadosBean" 
+		  scope="request">
+		<property name="transform" ref="transferenciaForm"></property>
+		<property name="transferenciaService" ref="transferenciaService"></property>
+	</bean>
+	
+	<bean id="selecionarChaveBean"
+		class="br.com.bradesco.web.ibpj.view.pix.transferencia.bean.SelecionarChaveBean"
+		scope="request">
+		<property name="transform" ref="transferenciaForm"></property>
+	</bean>
+	
+	<bean id="selecaoAgenciaContaTransferenciaBean"
+		class="br.com.bradesco.web.ibpj.view.pix.transferencia.bean.SelecaoAgenciaContaTransferenciaBean"
+		scope="request">
+		<property name="transform" ref="transferenciaForm"></property>
+<!-- 		<property name="saldoIBPJService" ref="saldoIBPJService"></property> -->
+	</bean>
+	
+	<bean id="inserirValorBean"
+		class="br.com.bradesco.web.ibpj.view.pix.transferencia.bean.InserirValorBean"
+		scope="request">
+		<property name="transform" ref="transferenciaForm"></property>
+	</bean>
+	
+	<bean id="transferenciaAgenciaContaBean"
+		class="br.com.bradesco.web.ibpj.view.pix.transferencia.bean.TransferenciaAgenciaContaBean"
+		scope="request">
+		<property name="transform" ref="transferenciaForm"></property>
+	</bean>
+	
+	<bean id="selecionarBancoBean"
+		class="br.com.bradesco.web.ibpj.view.pix.transferencia.bean.SelecionarBancoBean"
+		scope="request">
+		<property name="transform" ref="transferenciaForm"></property>
+	</bean>
+	
+		<!-- SERVIÇO ##################### -->
+	<bean id="transferenciaService"
+		class="br.com.bradesco.web.ibpj.service.business.transferencia.impl.TransferenciaServiceImpl">
+	</bean>
+	
+	<bean id="saldoIBPJService"
+		class="br.com.bradesco.web.ibpj.client.saldosextratos.saldos.impl.SaldoIBPJServiceImpl">
+	</bean>
+	
+	
+</beans>

@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<description>IBPJ - PIX</description>
+	<display-name>IBPJ - PIX</display-name>
+	<context-param>
+		<description>State saving method: client or server (= default)
+            See JSF Specification 2.5.2</description>
+		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+		<param-value>client</param-value>
+	</context-param>
+	<context-param>
+		<description>This parameter tells MyFaces if javascript code should be allowed in the
+			rendered HTML output.
+			If javascript is allowed, command_link anchors will have javascript code
+			that submits the corresponding form.
+			If javascript is not allowed, the state saving info and nested parameters
+			will be added as url parameters.
+			Default:  true </description>
+		<param-name>org.apache.myfaces.ALLOW_JAVASCRIPT</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.apache.myfaces.DETECT_JAVASCRIPT</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<context-param>
+		<description>If true, rendered HTML code will be formatted, so that it is  human readable .
+			i.e. additional line separators and whitespace will be written, that do not
+			influence the HTML code.
+			Default:  true </description>
+		<param-name>org.apache.myfaces.PRETTY_HTML</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<description>If true, a javascript function will be rendered that is able to restore the
+			former vertical scroll on every request. Convenient feature if you have pages
+			with long lists and you do not want the browser page to always jump to the top
+			if you trigger a link or button action that stays on the same page.
+			Default:  false </description>
+		<param-name>org.apache.myfaces.AUTO_SCROLL</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>tiles-definitions</param-name>
+		<param-value>
+			/WEB-INF/tiles.xml,
+			/WEB-INF/config/adesao/tiles-adesao.xml,
+			/WEB-INF/config/transferencia/tiles-transferencia.xml,
+			/WEB-INF/config/gerenciamento/tiles-gerenciamento.xml,
+			/WEB-INF/config/receber/tiles-receber.xml,
+			/WEB-INF/config/consultas/tiles-consultas.xml
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			<!-- Carrgar as configurações do aplicativo -->
+			/WEB-INF/applicationContext.xml
+			/WEB-INF/applicationContext-RedirectUrlToJsf.xml
+			/WEB-INF/applicationContext-pdc.xml
+			
+			<!-- Carregar as configurações base default -->
+			file:/suportedbdc_apl/ibpj/config/app/applicationContext.xml
+			file:/suportedbdc_apl/ibpj/config/app/applicationContext-alert.xml
+			file:/suportedbdc_apl/ibpj/config/app/applicationContext-dynamic-files.xml
+			file:/suportedbdc_apl/ibpj/config/app/applicationContext-error.xml
+			file:/suportedbdc_apl/ibpj/config/app/applicationContext-filters.xml
+			file:/suportedbdc_apl/ibpj/config/app/applicationContext-monitor.xml
+			file:/suportedbdc_apl/ibpj/config/app/applicationContext-object.xml
+			file:/suportedbdc_apl/ibpj/config/app/applicationContext-security-cws.xml
+			file:/suportedbdc_apl/ibpj/config/app/applicationContext-session.xml
+			file:/suportedbdc_apl/ibpj/config/app/applicationContext-log.xml
+			file:/suportedbdc_apl/ibpj/config/app/applicationContext-ib-perfilacesso-menudinamico.xml
+			file:/suportedbdc_apl/ibpj/config/OperacaoComprovante/applicationContext-operacaoComprovante.xml			
+			file:/suportedbdc_apl/ibpj/config/applicationContext-ofpjd000-hibernate.xml
+			file:/suportedbdc_apl/ibpj/config/applicationContext-przad000-db2-hibernate.xml
+			file:/suportedbdc_apl/ibpj/config/applicationContext-ib-commons.xml
+			file:/suportedbdc_apl/ibpj/config/applicationContext-ibpj-commons.xml
+			file:/suportedbdc_apl/ibpj/config/applicationContext-webcript.xml
+			file:/suportedbdc_apl/ibpj/config/appSpecContext-ib-parametrizacao-menudinamico.xml
+			file:/suportedbdc_apl/ibpj/config/BaixoCalao/applicationContext-ib-parametrizacao-baixocalao.xml
+
+			<!-- Carregar as configurações do serviço -->
+			/WEB-INF/config/applicationContext-managed-beans.xml
+			/WEB-INF/config/adesao/applicationContext-managed-beans-adesao.xml
+			/WEB-INF/config/transferencia/applicationContext-managed-beans-transferencia.xml
+			/WEB-INF/config/gerenciamento/applicationContext-managed-beans-gerenciamento.xml
+			/WEB-INF/config/receber/applicationContext-managed-beans-receber.xml
+			/WEB-INF/config/consultas/applicationContext-managed-beans-consultas.xml
+			
+			<!-- Fim  -->
+			<!--
+			/WEB-INF/applicationContext-ib-perfilacesso-menudinamico.xml
+			file:/suportedbdc_apl/ibpj/config/logs/applicationContext-log-autenticador.xml
+			file:/suportedbdc_apl/ibpj/config/OperacaoComprovante/applicationContext-operacaoComprovante.xml
+			file:/suportedbdc_apl/ibpj/config/UILote/applicationContextServicosAutorizacoes.xml -->
+			
+			<!-- Carregar as configurações dos componentes -->
+			classpath*:config/applicationContext*.xml
+			
+			
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.CONFIG_FILES</param-name>
+		<param-value>
+			/WEB-INF/faces-navigation-config.xml,
+			/WEB-INF/faces-managed-beans-config.xml,
+			/WEB-INF/config/adesao/faces-navigation-adesao.xml,
+			/WEB-INF/config/transferencia/faces-navigation-transferencia.xml,
+			/WEB-INF/config/gerenciamento/faces-navigation-gerenciamento.xml,
+			/WEB-INF/config/receber/faces-navigation-receber.xml,
+			/WEB-INF/config/consultas/faces-navigation-consultas.xml
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>br.com.bradesco.web.aq.view.components.arq.UIClientSideValidation.validator.VALIDATOR_RULES</param-name>
+		<param-value>
+			/br/com/bradesco/web/ib/view/validation/validator-rules.xml 
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.richfaces.SKIN</param-name>
+		<param-value>blueSky</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.richfaces.CONTROL_SKINNING</param-name>
+		<param-value>enable</param-value>
+	</context-param>
+	<!-- BradescoCommosValidators Configuration Resources -->
+	<context-param>
+		<param-name>br.com.bradesco.web.aq.view.components.arq.UIClientSideValidation.validator.VALIDATOR_RULES</param-name>
+		<param-value>
+			/br/com/bradesco/web/ib/view/validation/validator-rules.xml
+			<!-- /WEB-INF/custom-validator-rules.xml -->
+		</param-value>
+	</context-param>
+	<filter>
+		<filter-name>identificationSecurityFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+			<param-name>targetFilterLifecycle</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>securityFilter</filter-name>
+		<filter-class>org.springframework.security.util.FilterToBeanProxy</filter-class>
+		<init-param>
+			<param-name>targetBean</param-name>
+			<param-value>filterChainProxy</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>filterChainProxy</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+			<param-name>lifecycle</param-name>
+			<param-value>servlet-container-managed</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>extensionsFilter</filter-name>
+		<filter-class>org.apache.myfaces.component.html.util.ExtensionsFilter</filter-class>
+		<init-param>
+			<description>Set the size limit for uploaded files.
+			             Format: 10 - 10 bytes
+			                     10k - 10 KB
+			                     10m - 10 MB
+			                     1g - 1 GB</description>
+			<param-name>uploadMaxFileSize</param-name>
+			<param-value>100m</param-value>
+		</init-param>
+		<init-param>
+			<description>Set the threshold size - files
+			                 below this limit are stored in memory, files above
+			                 this limit are stored on disk.
+			
+			             Format: 10 - 10 bytes
+			                     10k - 10 KB
+			                     10m - 10 MB
+			                     1g - 1 GB</description>
+			<param-name>uploadThresholdSize</param-name>
+			<param-value>100k</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>decryptFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter>
+		<display-name>RichFaces Filter</display-name>
+		<filter-name>richfaces</filter-name>
+		<filter-class>org.ajax4jsf.Filter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>richfaces</filter-name>
+		<servlet-name>Faces Servlet</servlet-name>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+	</filter-mapping>
+	<filter>
+		<display-name>SEI Filter</display-name>
+		<filter-name>SeiFilter</filter-name>
+		<filter-class>br.com.bradesco.web.ib.view.sei.filter.SeiFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>identificationSecurityFilter</filter-name>
+		<url-pattern>/initSecure.jsp</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>extensionsFilter</filter-name>
+		<url-pattern>*.jsf</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>extensionsFilter</filter-name>
+		<url-pattern>*.sei</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>extensionsFilter</filter-name>
+		<url-pattern>/faces/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>securityFilter</filter-name>
+		<url-pattern>*.sei</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>securityFilter</filter-name>
+		<url-pattern>*.jsf</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>decryptFilter</filter-name>
+		<url-pattern>*.jsf</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>decryptFilter</filter-name>
+		<url-pattern>*.sei</url-pattern>
+	</filter-mapping>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.apache.myfaces.webapp.StartupServletContextListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>br.com.bradesco.web.aq.application.session.event.HttpSessionEventPublisher</listener-class>
+	</listener>
+	
+	    <filter>
+        <display-name>Servlet Remote Filter</display-name>
+        <filter-name>servletServiceRemoteFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <init-param>
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>servletServiceRemoteFilter</filter-name>
+        <url-pattern>/remote/*</url-pattern>
+    </filter-mapping>
+	
+	
+	<!-- PERMITIR ACESSO DO DISPATCHER A "SERVLET" DO SERVICO (DEVE ESTAR SENDO FILTRADA PELO FILTRO DE ACESSO)-->
+	 <servlet>
+	  <servlet-name>servletService</servlet-name>
+	  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	  <load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>servletService</servlet-name>
+		<url-pattern>/remote/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>/faces/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.faces</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.sei</url-pattern>
+	</servlet-mapping>
+	<session-config>
+		<session-timeout>15</session-timeout>
+	</session-config>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/WEB-INF/jsp/common/errorPages/403.html</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/jsp/common/errorPages/404.html</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/jsp/common/errorPages/500.html</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/WEB-INF/jsp/common/errorPages/internalError.jsp</location>
+	</error-page>
+	<!-- Base transacional do IBPJ -->
+	<resource-ref>
+		<res-ref-name>jdbc/OFPJD000</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+		<res-sharing-scope>Shareable</res-sharing-scope>
+	</resource-ref>
+	<!-- Base para a DBCORP -->
+	<resource-ref>
+		<res-ref-name>jdbc/dbCorp</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+		<res-sharing-scope>Shareable</res-sharing-scope>
+	</resource-ref>
+	<!-- Base para os acessos PDC/CWS -->
+	<resource-ref>
+		<res-ref-name>jdbc/awbdbacess</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+		<res-sharing-scope>Shareable</res-sharing-scope>
+	</resource-ref>
+	<!-- Base de Personalização -->
+	<resource-ref>
+		<res-ref-name>jdbc/PRZAD000</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+		<res-sharing-scope>Shareable</res-sharing-scope>
+	</resource-ref>
+	<!-- Referências utilizadas para os componentes obterem as configurações -->
+	<env-entry>
+		<env-entry-name>componentes/propFile</env-entry-name>
+		<env-entry-type>java.lang.String</env-entry-type>
+		<env-entry-value>/suportedbdc_apl/ibpj/config/</env-entry-value>
+	</env-entry>
+	<env-entry>
+		<env-entry-name>messages/propFile</env-entry-name>
+		<env-entry-type>java.lang.String</env-entry-type>
+		<env-entry-value>/suportedbdc_apl/ibpj/config/</env-entry-value>
+	</env-entry>
+	<env-entry>
+		<env-entry-name>bundleWriter</env-entry-name>
+		<env-entry-type>java.lang.String</env-entry-type>
+		<env-entry-value>/suportedbdc_apl/ibpj/config/</env-entry-value>
+	</env-entry>
+	<env-entry>
+		<env-entry-name>bundle.externalPath.base</env-entry-name>
+		<env-entry-type>java.lang.String</env-entry-type>
+		<env-entry-value>/suportedbdc_apl/ibpj/config/</env-entry-value>
+	</env-entry>
+	<env-entry>
+		<env-entry-name>bundle.externalPath.app.ib</env-entry-name>
+		<env-entry-type>java.lang.String</env-entry-type>
+		<env-entry-value>/suportedbdc_apl/ibpj/config/</env-entry-value>
+	</env-entry>
+	<env-entry>
+     	<env-entry-name>webcanais/propFile</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>/suportedbdc_apl/ibpj/ibpjsaldosextratos/config/webcanais</env-entry-value>
+    </env-entry>
+	<context-param>
+		<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+		<param-value>resources.application</param-value>
+	</context-param>
+
+	
+</web-app>

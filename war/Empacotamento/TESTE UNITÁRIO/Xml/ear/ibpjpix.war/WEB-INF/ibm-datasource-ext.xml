@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSourceExtensions>
+  <extendedDSPropertySet resRefOrModuleName="ibpjpix.war#jdbc/OFPJD000"/>
+  <extendedDSPropertySet resRefOrModuleName="ibpjpix.war#jdbc/dbCorp"/>
+  <extendedDSPropertySet resRefOrModuleName="ibpjpix.war#jdbc/awbdbacess"/>
+  <extendedDSPropertySet resRefOrModuleName="ibpjpix.war#jdbc/PRZAD000"/>
+</dataSourceExtensions>

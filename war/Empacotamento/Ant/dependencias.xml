@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<dependencias>
+	<projeto-ramo projeto="LIBS" ramo="LIBS">
+		<dependencia-arquivo id="id.j2ee-1.4" caminho="Terceiros/J2EE" nome="j2ee-1.4.jar" revisao="1"/>
+    <dependencia-pasta id="ibpj_banc_pix" caminho="IBBR/IBGE/ibpj_banc_pix" recursivo="true"/>
+    <dependencia-pasta id="ibpj_ext_comuns" caminho="IBBR/IBGE/ibpj_ext_comuns" recursivo="true"/>
+    <dependencia-pasta id="ibpj_com_dadoscliente" caminho="IBBR/IBGE/ibpj_com_dadoscliente" recursivo="true"/>
+		<dependencia-pasta id="ibpj_com_login_cws" caminho="IBBR/IBGE/ibpj_com_login_cws" recursivo="true"/>
+		<dependencia-pasta id="ibpj_com_parametrizacoes" caminho="IBBR/IBGE/ibpj_com_parametrizacoes" recursivo="true"/>
+		<dependencia-pasta id="ibpj_com_suporteautenticacao" caminho="IBBR/IBGE/ibpj_com_suporteautenticacao" recursivo="true"/>
+		<dependencia-pasta id="ibpj_infra_comum" caminho="IBBR/IBGE/ibpj_infra_comum" recursivo="true"/>
+		<dependencia-pasta id="ibpj_infra_comum_ii" caminho="IBBR/IBGE/ibpj_infra_comum_ii" recursivo="true"/>
+		<dependencia-pasta id="ibpj_infra_apl_legado" caminho="IBBR/IBGE/ibpj_infra_apl_legado" recursivo="true"/>
+		<dependencia-pasta id="ibpj_com_operacao" caminho="IBBR/IBGE/ibpj_com_operacao" recursivo="true"/>
+		<dependencia-pasta id="ibpj_com_servicosexternos" caminho="IBBR/IBGE/ibpj_com_servicosexternos" recursivo="true"/>
+		<dependencia-pasta id="ibpj_ext_gestaoconteudo" caminho="IBBR/IBGE/ibpj_ext_gestaoconteudo" recursivo="true"/>
+		<dependencia-pasta id="ibpj_com_empresa" caminho="IBBR/IBGE/ibpj_com_empresa" recursivo="true"/>
+		<dependencia-pasta id="ibpj_infra_awb_cws_externos" caminho="IBBR/IBGE/ibpj_infra_awb_cws_externos" recursivo="true"/>
+		<dependencia-pasta id="ibpj_infra_awb_cws" caminho="IBBR/IBGE/ibpj_infra_awb_cws" recursivo="true"/>
+		<dependencia-pasta id="ibpj_cons_saldosextratos" caminho="IBBR/IBGE/ibpj_cons_saldosextratos" recursivo="true"/>
+		<dependencia-pasta id="webcanais" caminho="IBBR/IBGE/webcanais" recursivo="true"/>
+		<dependencia-pasta id="Terceiros" caminho="IBBR/IBGE/Terceiros" recursivo="true"/>
+   
+	</projeto-ramo>
+</dependencias>

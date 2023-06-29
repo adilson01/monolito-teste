@@ -1,0 +1,52 @@
+<errorCatalog>
+
+	<!-- EXCEPCIONES GENERALES -->
+	
+	<!-- <error type="java.lang.Exception"
+	       handler="cobrancaInstantaneaExceptionHandler">  
+			<log-behaviour severity="error"/>
+			<redirect-behaviour path="/appException.jsf?CTRL=${CTL}" showInModal="false"/>		
+	</error>
+
+	<error type="java.lang.RuntimeException"
+	       handler="cobrancaInstantaneaExceptionHandler">  
+			<log-behaviour severity="error"/>
+			<redirect-behaviour path="/appException.jsf?CTRL=${CTL}" showInModal="false"/>		
+	</error>
+	
+	<error type="java.lang.NullPointerException"
+	       handler="cobrancaInstantaneaExceptionHandler">  
+			<log-behaviour severity="error"/>
+			<redirect-behaviour path="/appException.jsf?CTRL=${CTL}" showInModal="false"/>		
+	</error> -->
+	
+	
+		
+	<!-- EXCEPCIONES DE APLICATIVO -->
+	
+	<!-- <error type="br.com.bradesco.web.aq.application.error.BradescoBaseException"
+	       handler="cobrancaInstantaneaExceptionHandler">  
+			<log-behaviour severity="error"/>
+			<redirect-behaviour path="/appException.jsf?CTRL=${CTL}" showInModal="false"/>		
+	</error>
+	
+		<error type="br.com.bradesco.web.aq.application.error.BradescoArchitectureException"
+			handler="cobrancaInstantaneaExceptionHandler">  
+			<log-behaviour severity="error"/>
+			<redirect-behaviour path="/appException.jsf?CTRL=${CTL}" showInModal="false"/>
+	</error>
+	
+	<error type="br.com.bradesco.web.aq.application.error.BradescoApplicationException"
+	       handler="cobrancaInstantaneaExceptionHandler">  
+			<log-behaviour severity="error"/>
+			<redirect-behaviour path="/appException.jsf?CTRL=${CTL}" showInModal="false"/> 
+	</error>
+	
+	
+	<error type="br.com.bradesco.web.ib.service.business.transferencia.exception.TransferenciaException"
+	       handler="cobrancaInstantaneaExceptionHandler">  
+			<log-behaviour severity="warn"/>
+			<redirect-behaviour path="/appException.jsf?CTRL=${CTL}" showInModal="false"/>
+	</error> -->
+	
+</errorCatalog>

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "../WebContent/WEB-INF/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="Consultas-rolling" class="br.com.bradesco.web.service.provider.log.extension.CanalInternetDailyRollingFileAppender">
+		<param name="FileExtention" value=".log" />
+		<param name="File" value="/suportedbdc_logs/ibpj/ibpjpix/logs/Consultas"/>
+		<param name="DatePattern" value="yyyyMMdd"/>
+		<param name="Encoding" value="UTF-8"/>
+		<param name="append" value="true"/>
+		<layout class="br.com.bradesco.web.aq.application.log.impl.layout.BradescoPatternLayout">
+			<param name="commonLayoutPattern" value="%d{yyyy-MM-dd-HH.mm.ss.SSS000}\t%-5p\t%S\t%-40N\t%I\t [%c] [%m]"/>
+		</layout>		
+	</appender>
+
+	<appender name="AQ-rolling" class="br.com.bradesco.web.service.provider.log.extension.CanalInternetDailyRollingFileAppender">
+        <param name="FileExtention" value=".log" />
+        <param name="DatePattern" value="yyyyMMdd" />
+        <param name="Encoding" value="UTF-8"/>
+        <param name="File" value="/suportedbdc_logs/ibpj/ibpjpix/logs/AWB-AQ-Bradesco" />
+        <param name="append" value="true" />
+		<layout class="br.com.bradesco.web.aq.application.log.impl.layout.BradescoPatternLayout">
+			<param name="commonLayoutPattern" value="%d{yyyy-MM-dd-HH.mm.ss.SSS000}\t%-5p\t%S\t%-40N\t%I\t [%c] [%m]"/>
+		</layout>		
+    </appender>
+   
+    <appender name="APP-rolling" class="br.com.bradesco.web.service.provider.log.extension.CanalInternetDailyRollingFileAppender">
+        <param name="FileExtention" value=".log" />
+        <param name="DatePattern" value="yyyyMMdd" />
+        <param name="Encoding" value="UTF-8"/>
+        <param name="File" value="/suportedbdc_logs/ibpj/ibpjpix/logs/AWB-APP-Bradesco" />
+        <param name="append" value="true" />
+        <layout class="br.com.bradesco.web.aq.application.log.impl.layout.BradescoPatternLayout">
+			<param name="commonLayoutPattern" value="%d{yyyy-MM-dd-HH.mm.ss.SSS000}\t%-5p\t%S\t%-40N\t%I\t [%c] [%m]"/>
+		</layout>
+    </appender>
+	
+	<appender name="PDC-rolling" class="br.com.bradesco.web.service.provider.log.extension.CanalInternetDailyRollingFileAppender">
+        <param name="FileExtention" value=".log" />
+        <param name="DatePattern" value="yyyyMMdd" />
+        <param name="Encoding" value="UTF-8"/>
+        <param name="File" value="/suportedbdc_logs/ibpj/ibpjpix/logs/PDC_consultas" />
+        <param name="append" value="true" />
+		<layout class="br.com.bradesco.web.aq.application.log.impl.layout.BradescoPatternLayout">
+			<param name="commonLayoutPattern" value="%d{yyyy-MM-dd-HH.mm.ss.SSS000}\t%-5p\t%S\t%-40N\t%I\t [%c] [%m]"/>
+		</layout>
+    </appender>
+
+	<!-- Define un appender que muestra los mensajes de log por consola -->
+	<appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %p [%c] - [%m]%n"/>
+		</layout>
+	</appender>
+	
+    <appender name="Infra-rolling" class="br.com.bradesco.web.service.provider.log.extension.CanalInternetDailyRollingFileAppender">
+        <param name="FileExtention" value=".log" />
+        <param name="DatePattern" value="yyyyMMdd" />
+        <param name="Encoding" value="UTF-8"/>
+        <param name="File" value="/suportedbdc_logs/ibpj/ibpjpix/logs/Infra" />
+        <param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %p [%c] - [%m]%n"/>
+		</layout>		
+    </appender>
+    
+    <!-- Comunicação ICP-->
+    <logger name="br.com.bradesco.web.infra.pj.connector.icp" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="ICPConnector_log"/>
+    </logger>
+    <appender name="ICPConnector_log" class="br.com.bradesco.web.service.provider.log.extension.CanalInternetDailyRollingFileAppender">
+        <param name="File" value="/suportedbdc_logs/ibpj/ibpjpix/logs/ICPConnector_log" />
+        <param name="DatePattern" value="yyyy-MM-dd" />
+        <param name="append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %p [%c] - [%m]%n" />
+        </layout>
+    </appender>
+	
+	
+	<!-- Define el nivel de log de la AWB. -->
+	<logger name="br.com.bradesco.web.aq" additivity="false">
+		<level value="info"/>
+		<appender-ref ref="AQ-rolling"/>
+	</logger>
+
+	<logger name="br.com.bradesco.web.ibpj" additivity="false">
+		<level value="debug"/>
+		<appender-ref ref="Infra-rolling"/>
+	</logger>
+	
+	<logger name="br.com.bradesco.web.ib" additivity="false">
+		<level value="info"/>
+		<appender-ref ref="APP-rolling"/>
+	</logger>
+
+	<logger name="org.springframework" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="Infra-rolling"/>
+    </logger>
+	
+	<logger name="org.apache.myfaces" additivity="false">
+		<level value="info"/>
+		<appender-ref ref="Infra-rolling"/>
+	</logger>
+	
+	<logger name="org.apache.commons" additivity="false">
+		<level value="info"/>
+		<appender-ref ref="Infra-rolling"/>
+	</logger>
+	
+	<logger name="org.hibernate" additivity="false">
+		<level value="info"/>
+		<appender-ref ref="Infra-rolling"/>
+	</logger>
+	
+<!-- 	<logger name="br.com.bradesco.web.service.provider.log.helper.PaginaGeradorLog">
+		<level value="info"/>
+		<appender-ref ref="ibpj-transferencia-navegacao"/>
+	</logger>
+	
+	<logger name="br.com.bradesco.web.service.provider.log.helper.TransacaoGeradorLog">
+		<level value="info"/>
+		<appender-ref ref="ibpj-transferencias-negocio"/>
+	</logger>
+	
+	<logger name="br.com.bradesco.web.ibpf.service.provider.log.helper.ErroGeradorLog">
+		<level value="info"/>
+		<appender-ref ref="Infra-rolling"/>
+	</logger> -->
+	
+	<logger name="br.com.bradesco.web.ibpj.service.data.dao" additivity="false">
+        <level value="debug"/>
+        <appender-ref ref="Consultas-rolling"/>
+    </logger>
+	
+	<logger name="br.com.bradesco.web.aq.application.pdc" additivity="false">
+		<level value="info" />
+		<appender-ref ref="PDC-rolling" />
+	</logger>
+
+	<root>
+		<level value="info"/>
+		<appender-ref ref="Infra-rolling"/>
+	</root>
+
+</log4j:configuration>
+
+
+
+
